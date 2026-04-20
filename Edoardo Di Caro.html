@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)file:///Users/edoardodicaro/Desktop/Website/Edoardo%20Di%20Caro.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edoardo Di Caro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="file:///Users/edoardodicaro/Desktop/Website/Edoardo%20Di%20Caro_files/css2" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f3ef;
+      --ink: #1a1a18;
+      --ink-light: #5a5a55;
+      --accent: #2d4a3e;
+      --accent-warm: #c8a96e;
+      --line: #d9d5cd;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(245,243,239,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-light);
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 900px;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.9s ease forwards 0.2s;
+    }
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--ink-light);
+      font-weight: 300;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .hero-cta:hover { gap: 1rem; }
+    .hero-bg-text {
+      position: absolute;
+      right: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--serif);
+      font-size: clamp(10rem, 20vw, 18rem);
+      font-weight: 600;
+      color: rgba(45,74,62,0.04);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+      letter-spacing: -0.04em;
+    }
+    .hero-contacts {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .hero-contacts a {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .hero-contacts a:hover { color: var(--accent); }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--accent-warm);
+    }
+    h2 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 2.4rem;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      line-height: 1.8;
+    }
+    .about-text p + p { margin-top: 1rem; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .stat {
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+    }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 0.4rem;
+    }
+
+    /* EXPERIENCE */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .exp-item:last-child { border-bottom: 1px solid var(--line); }
+    .exp-date {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+      padding-top: 0.3rem;
+    }
+    .exp-company {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 0.3rem;
+    }
+    .exp-role {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .exp-projects {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .exp-projects li {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .exp-projects li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent-warm);
+      font-size: 0.8rem;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .skill-group {
+      border-top: 2px solid var(--ink);
+      padding-top: 1.2rem;
+    }
+    .skill-group-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* EDUCATION */
+    .edu-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .edu-item:last-child { border-bottom: 1px solid var(--line); }
+    .edu-date {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+      padding-top: 0.3rem;
+    }
+    .edu-school {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 0.3rem;
+    }
+    .edu-degree {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .edu-focus {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      line-height: 1.6;
+    }
+
+    /* CERTIFICATIONS & LANGUAGES */
+    .cert-lang-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    .cert-list, .lang-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .cert-list li, .lang-list li {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      padding-left: 1rem;
+      position: relative;
+    }
+    .cert-list li::before, .lang-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent-warm);
+      font-size: 1.2rem;
+      line-height: 1;
+      top: 0.1rem;
+    }
+    .subsection-title {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* EXTRAS */
+    .extras-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .extra-card {
+      border: 1px solid var(--line);
+      padding: 2rem;
+      border-radius: 2px;
+      transition: border-color 0.2s;
+    }
+    .extra-card:hover { border-color: var(--accent); }
+    .extra-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+    .extra-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .extra-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      line-height: 1.6;
+    }
+
+    /* CONTACT */
+    #contact {
+      background: var(--accent);
+      max-width: none;
+      padding: 6rem 4rem;
+    }
+    #contact .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    #contact .section-header { margin-bottom: 2.5rem; }
+    #contact h2 { color: #f5f3ef; }
+    #contact .section-num { color: var(--accent-warm); }
+    #contact .section-line { background: rgba(245,243,239,0.2); }
+    .contact-intro {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: rgba(245,243,239,0.75);
+      margin-bottom: 3rem;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+    .contact-links {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .contact-link {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .contact-link-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+    }
+    .contact-link-value {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #f5f3ef;
+      border-bottom: 1px solid rgba(245,243,239,0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .contact-link:hover .contact-link-value { border-color: var(--accent-warm); }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1a1a18;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: #5a5a55;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      #hero, section { padding: 5rem 1.5rem; }
+      .about-grid, .cert-lang-grid, .extras-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .hero-bg-text { display: none; }
+      #contact { padding: 5rem 1.5rem; }
+      .contact-links { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">EDC</span>
+    <ul class="nav-links">
+      <li><a href="file:///Users/edoardodicaro/Downloads/index.html#about">About</a></li>
+      <li><a href="file:///Users/edoardodicaro/Downloads/index.html#experience">Experience</a></li>
+      <li><a href="file:///Users/edoardodicaro/Downloads/index.html#skills">Skills</a></li>
+      <li><a href="file:///Users/edoardodicaro/Downloads/index.html#education">Education</a></li>
+      <li><a href="file:///Users/edoardodicaro/Downloads/index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" style="max-width:none; margin:0; padding: 0 4rem;">
+    <div class="hero-inner">
+      <p class="hero-label">Supply Chain &amp; Data Consultant · Milan</p>
+      <h1>Edoardo<br><em>Di Caro</em></h1>
+      <p class="hero-sub">3+ years of experience bridging supply chain strategy, data analytics, and digital transformation across leading consulting firms.</p>
+      <a href="file:///Users/edoardodicaro/Downloads/index.html#contact" class="hero-cta">Get in touch →</a>
+      <div class="hero-contacts" style="margin-top: 2rem;">
+        <a href="mailto:dicaroedoardo@gmail.com">✉ dicaroedoardo@gmail.com</a>
+        <a href="https://linkedin.com/in/edoardodicaro" target="_blank">in linkedin.com/in/edoardodicaro</a>
+        <a href="tel:+393663265223">✆ +39 366 326 5223</a>
+      </div>
+    </div>
+    <div class="hero-bg-text">EDC</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header reveal visible">
+      <span class="section-num">01</span>
+      <h2>About</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal visible">
+        <p>Edoardo is a consultant currently working in the Product Development &amp; Manufacturing team within Deloitte's Supply Chain &amp; Network Operations practice.</p>
+        <p>Over the years, he has developed expertise in Supply Chain Planning and Management, Warehouse and Inventory Management, Data Analytics and Visualization, and Digital/IT Transformation.</p>
+        <p>He is passionate about sports and technology, and thrives in international, collaborative environments.</p>
+      </div>
+      <div class="about-stats reveal visible">
+        <div class="stat">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Years of experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Top-tier firms</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Industries served</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">C1</div>
+          <div class="stat-label">English proficiency</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" style="border-top: 1px solid var(--line);">
+    <div class="section-header reveal visible">
+      <span class="section-num">02</span>
+      <h2>Experience</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="exp-item reveal visible">
+      <div class="exp-date">Jun 2023 — Ongoing</div>
+      <div>
+        <div class="exp-company">Deloitte</div>
+        <div class="exp-role">Consultant — Supply Chain &amp; Network Operations</div>
+        <ul class="exp-projects">
+          <li>Professional Coffee Appliances: Availability-To-Promise application for Sales; product segmentation analysis aligned with production strategy; stock reduction action plan.</li>
+          <li>Retail Industry: Warehouse processes assessment and data analysis for massive picking methodology implementation.</li>
+          <li>Food Industry: Production business process mapping for SAP S/4HANA implementation.</li>
+          <li>Food Industry: Co-development of a Purchasing Goods Price Prediction tool using Deloitte's proprietary Gen AI tools.</li>
+          <li>Biomedical Devices: Shopfloor monitoring and ticketing management as part of hypercare SAP DM support.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal visible">
+      <div class="exp-date">Jul 2022 — May 2023</div>
+      <div>
+        <div class="exp-company">PwC</div>
+        <div class="exp-role">Associate Consultant — Data &amp; Analytics</div>
+        <ul class="exp-projects">
+          <li>Banking Industry: Dashboard reporting with Power BI, Tableau, and MicroStrategy.</li>
+          <li>Banking Industry: Data flow analysis and Data Warehouse creation with SQL on Palantir and PostgreSQL.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal visible">
+      <div class="exp-date">May 2021 — Jul 2022</div>
+      <div>
+        <div class="exp-company">PwC</div>
+        <div class="exp-role">Associate Consultant — Business Operations</div>
+        <ul class="exp-projects">
+          <li>Media &amp; Entertainment Industry: Project management, planning, monitoring, and scenario analysis in IT projects.</li>
+          <li>TMT Industry: Data architecture modeling, data migration, BPMN, and reporting.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="border-top: 1px solid var(--line);">
+    <div class="section-header reveal visible">
+      <span class="section-num">03</span>
+      <h2>Skills</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid reveal visible">
+      <div class="skill-group">
+        <div class="skill-group-label">Proficiency</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">PowerPoint</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">BPMN</span>
+          <span class="skill-tag">Visio</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Advanced</div>
+        <div class="skill-tags">
+          <span class="skill-tag">DBeaver</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">MicroStrategy</span>
+          <span class="skill-tag">Palantir</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Fundamentals</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-tag">Confluence</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="border-top: 1px solid var(--line);">
+    <div class="section-header reveal visible">
+      <span class="section-num">04</span>
+      <h2>Education</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="edu-item reveal visible">
+      <div class="edu-date">Mar 2019 — Jul 2021</div>
+      <div>
+        <div class="edu-school">Politecnico di Milano</div>
+        <div class="edu-degree">MSc Supply Chain Management</div>
+        <div class="edu-focus">Supply Chain Management and Planning · Operations · Accounting · Machine Learning · Statistics</div>
+      </div>
+    </div>
+
+    <div class="edu-item reveal visible">
+      <div class="edu-date">Oct 2015 — Feb 2019</div>
+      <div>
+        <div class="edu-school">Politecnico di Milano</div>
+        <div class="edu-degree">BSc Management Engineering</div>
+        <div class="edu-focus">Supply Chain Management · Logistics · Corporate Economics · Management · Information Technology</div>
+      </div>
+    </div>
+
+    <!-- Extracurricular under Education -->
+    <div class="edu-item reveal visible">
+      <div class="edu-date">Nov 2015 — Jul 2018</div>
+      <div>
+        <div class="edu-school">Fondazione RUI, Milan</div>
+        <div class="edu-degree">J.U.M.P. — Job University Matching Program</div>
+        <div class="edu-focus">3-year program on Ethics, Leadership, Global Mindset and soft skills development.</div>
+      </div>
+    </div>
+
+    <div class="edu-item reveal visible">
+      <div class="edu-date">Jul 2017</div>
+      <div>
+        <div class="edu-school">IESE Business School</div>
+        <div class="edu-degree">Calarossa Summer School</div>
+        <div class="edu-focus">Business Ethics case discussions with IESE professors in an international environment.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS & LANGUAGES -->
+  <section style="border-top: 1px solid var(--line);">
+    <div class="section-header reveal visible">
+      <span class="section-num">05</span>
+      <h2>Certifications &amp; Languages</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="cert-lang-grid reveal visible">
+      <div>
+        <div class="subsection-title">Certifications</div>
+        <ul class="cert-list">
+          <li>TOEIC English — 930/990</li>
+          <li>IPMA — Introductory Level</li>
+          <li>Tableau Sales Accreditation</li>
+          <li>PM &amp; CM — D.Lab Academy</li>
+          <li>Gen AI Angel</li>
+        </ul>
+      </div>
+      <div>
+        <div class="subsection-title">Languages</div>
+        <ul class="lang-list">
+          <li>Italian — Mother Tongue</li>
+          <li>English — C1 Business Proficiency</li>
+          <li>French — Introductory</li>
+          <li>Spanish — Introductory</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTRAS -->
+  <section style="border-top: 1px solid var(--line);">
+    <div class="section-header reveal visible">
+      <span class="section-num">06</span>
+      <h2>Beyond Work</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="extras-grid reveal visible">
+      <div class="extra-card">
+        <div class="extra-icon">🏀</div>
+        <div class="extra-title">National Basketball Champion</div>
+        <div class="extra-desc">Former basketball player — Under 19 National Champion in the "Elite" category.</div>
+      </div>
+      <div class="extra-card">
+        <div class="extra-icon">🎸</div>
+        <div class="extra-title">Music &amp; Guitar</div>
+        <div class="extra-desc">Former guitar player with a lasting passion for music across genres.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-header reveal visible">
+        <span class="section-num">07</span>
+        <h2>Get in Touch</h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="contact-intro reveal visible">Open to new opportunities, collaborations, or simply a conversation. Feel free to reach out.</p>
+      <div class="contact-links reveal visible">
+        <a href="mailto:dicaroedoardo@gmail.com" class="contact-link">
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-value">dicaroedoardo@gmail.com</span>
+        </a>
+        <a href="https://linkedin.com/in/edoardodicaro" target="_blank" class="contact-link">
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-value">edoardodicaro</span>
+        </a>
+        <a href="tel:+393663265223" class="contact-link">
+          <span class="contact-link-label">Phone</span>
+          <span class="contact-link-value">+39 366 326 5223</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Edoardo Di Caro · edoardodicaro.com
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+
+
+</body></html>
